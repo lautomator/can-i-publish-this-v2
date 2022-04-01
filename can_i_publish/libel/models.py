@@ -1,38 +1,32 @@
 from django.db import models
 
 
-class Question(models.Model):
-    question_id = models.CharField(max_length=4, default="")
-    question_text = models.TextField( default="")
+class Card(models.Model):
+    card_id = models.CharField(max_length=4, null=True)
+    card_text = models.TextField(null=True)
+    continuation_card = models.BooleanField(default=False)
+    end_card = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.question_id
+        return self.card_id
 
 
-class Choice(models.Model):
-    question = models.ManyToManyField(Question)
-    choice_text = models.CharField(max_length=200, default="")
+class Relationship(models.Model):
+    c_id = models.ForeignKey(Card, on_delete=models.CASCADE)
+    choice_one_next = models.ForeignKey(
+            Card,
+            on_delete=models.CASCADE,
+            related_name="+",
+            blank=True,
+            null=True
+        )
+    choice_two_next = models.ForeignKey(
+            Card,
+            on_delete=models.CASCADE,
+            related_name="+",
+            blank=True,
+            null=True
+        )
 
     def __str__(self):
-        return self.choice_text
-
-
-
-"""
-Questions
-Answers that lead to other questions and endpoints
-
-DB: need to store the questions and answers (all are static). There
-are several answer choices for each question
-
-Question
-id | q_text
-
-Choice
-question (q_text) one to one rel | choice 
-
-the logic map will be an iterable dictionary not stored in the DB
-
-You need to be able to map choices to certain questions. Most of them are 'yes' and 'no' but some of them are not.
-
-"""
+        return self.q_id.card_id + ' rel'
