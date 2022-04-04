@@ -9,9 +9,10 @@ def index(request):
     return HttpResponse("This is home of the Libel module. This should have question 1.")
 
 
-def card(request, card_id):
-    response = "This card ID is: %s"
-    return HttpResponse(response % card_id)
+def card(request, card_slug):
+    card = Card.objects.get(pk=card_slug)
+    card_text = card.card_text
+    return HttpResponse(card_text)
 
 
 

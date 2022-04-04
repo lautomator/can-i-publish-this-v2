@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Card(models.Model):
-    card_id = models.CharField("Card ID", max_length=4, null=True)
+    card_id = models.CharField("Card Slug", max_length=4, null=True)
     card_text = models.TextField("Card Content", null=True)
 
     CARD_TYPE_CHOICES = (
