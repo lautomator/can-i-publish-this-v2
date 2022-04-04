@@ -6,12 +6,12 @@ from .models import Card, Relationship
 
 
 def index(request):
-    return HttpResponse("This is home of Libel with all of the modules.")
+    return HttpResponse("This is home of the Libel module. This should have question 1.")
 
 
-# def card(request, card_id):
-#     card = get_object_or_404(Card, pk=card_id)
-#     return render(request, 'libel/card')
+def card(request, card_id):
+    response = "This card ID is: %s"
+    return HttpResponse(response % card_id)
 
 
 
