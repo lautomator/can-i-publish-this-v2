@@ -4,7 +4,7 @@ from .models import Card, Relationship
 
 class CardAdmin(admin.ModelAdmin):
     list_display = (
-        'card_id',
+        'card_slug',
         'card_type',
         'can_publish_status'
     )

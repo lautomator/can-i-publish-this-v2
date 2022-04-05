@@ -5,6 +5,6 @@ from . import views
 urlpatterns = [
     path('', views.index, name='index'),
     # ex: /libel/Q1/
-    # path('<slug:card_slug>/', views.card, name='card'),
+    path('<card_slug>/', views.card, name='card'),
 ]
 

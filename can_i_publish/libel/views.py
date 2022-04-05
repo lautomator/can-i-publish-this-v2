@@ -10,7 +10,8 @@ def index(request):
 
 
 def card(request, card_slug):
-    card = Card.objects.get(pk=card_slug)
+    all_cards = Card.objects.all()
+    card = all_cards.get(card_slug=card_slug)
     card_text = card.card_text
     return HttpResponse(card_text)
 
@@ -19,3 +20,8 @@ def card(request, card_slug):
 # def detail(request, question_id):
 #     question = get_object_or_404(Question, pk=question_id)
 #     return render(request, 'polls/detail.html', {'question': question})
+
+
+# c = Card.objects.all()
+# c.get(card_slug='Q1')
+# c.get(card_slug='Q1').card_text

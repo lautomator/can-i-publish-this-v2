@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Card(models.Model):
-    card_id = models.CharField("Card Slug", max_length=4, null=True)
+    card_slug = models.CharField("Card Slug", max_length=4, null=True)
     card_text = models.TextField("Card Content", null=True)
 
     CARD_TYPE_CHOICES = (
@@ -32,7 +32,7 @@ class Card(models.Model):
     )
 
     def __str__(self):
-        return self.card_id
+        return self.card_slug
 
 
 class Relationship(models.Model):
@@ -60,4 +60,4 @@ class Relationship(models.Model):
     )
 
     def __str__(self):
-        return self.card.card_id + ' rel'
+        return self.card.card_slug + ' rel'
