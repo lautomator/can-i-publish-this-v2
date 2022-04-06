@@ -1,27 +1,20 @@
-from django.http import HttpResponse
-from django.shortcuts import get_object_or_404, render
+# from django.http import HttpResponse
+from django.shortcuts import render
 from django.template import loader
 
 from .models import Card, Relationship
 
 
 def index(request):
-    return HttpResponse("This is home of the Libel module. This should have question 1.")
+    all_cards = Card.objects.all()
+    context = {'all_cards': all_cards}
+
+    return render(request, 'libel/index.html', context)
 
 
 def card(request, card_slug):
     all_cards = Card.objects.all()
-    card = all_cards.get(card_slug=card_slug)
-    card_text = card.card_text
-    return HttpResponse(card_text)
+    card =  all_cards.get(card_slug=card_slug)
+    context = {'card': card}
 
-
-
-# def detail(request, question_id):
-#     question = get_object_or_404(Question, pk=question_id)
-#     return render(request, 'polls/detail.html', {'question': question})
-
-
-# c = Card.objects.all()
-# c.get(card_slug='Q1')
-# c.get(card_slug='Q1').card_text
+    return render(request, 'libel/card.html', context)
