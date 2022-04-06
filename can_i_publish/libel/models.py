@@ -64,3 +64,10 @@ class Relationship(models.Model):
 
     def __str__(self):
         return self.card.card_slug + ' rel'
+
+
+class Choices(models.Model):
+    # a tally of the current user choices
+    pass
+
+

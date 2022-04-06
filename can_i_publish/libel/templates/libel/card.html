@@ -4,6 +4,14 @@
 
   <h3>{{ card.card_slug }}</h3>
 
+  {% if card.can_publish_status == 'yes' %}
+  <p><strong>&check;</strong> <em>can publish</em></p>
+  {% endif %}
+
+  {% if card.can_publish_status == 'no' %}
+  <p><strong>&#10005;</strong> <em>pause</em></p>
+  {% endif %}
+
   <table>
     <tr>
       <td>Card Slug</td>
