@@ -2,12 +2,33 @@
 
 {% block content %}
 
-    <h3>{{ card.card_slug }}</h3>
+  <h3>{{ card.card_slug }}</h3>
 
-    <div>
-        {% autoescape off %}
-        {{ card.card_text }}
-        {% endautoescape %}
-    </div>
+  <table>
+    <tr>
+      <td>Card Slug</td>
+      <td>{{ card.card_slug }}</td>
+    </tr>
+    <tr>
+      <td>Card Text</td>
+      <td>{% autoescape off %}{{ card.card_text }}{% endautoescape %}</td>
+    </tr>
+    <tr>
+      <td>Choice 1</td>
+      <td>{{ card.choice_one }}</td>
+    </tr>
+    <tr>
+      <td>Choice 2</td>
+      <td>{{ card.choice_two }}</td>
+    </tr>
+    <tr>
+      <td>Card Type</td>
+      <td>{{ card.card_type }}</td>
+    </tr>
+    <tr>
+      <td>Status</td>
+      <td>{{ card.can_publish_status }}</td>
+    </tr>
+  </table>
 
 {% endblock %}

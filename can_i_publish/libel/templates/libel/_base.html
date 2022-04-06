@@ -1,11 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Libel</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Libel</title>
+
+  <!-- TEMP -->
+  <style>
+    .container {
+      margin: 20px auto;
+      width:  600px;
+    }
+
+    table,
+    td {
+      border: 1px dashed gray;
+      border-collapse: collapse;
+      box-sizing: border-box;
+      padding: 10px;
+    }
+
+    table {
+      width:  100%;
+    }
+
+    td:first-of-type {
+      width:  25%;
+    }
+
+    td {
+      width:  75%;
+    }
+  </style>
 </head>
 <body>
+  <div class="container">
     <h1>Can I Publish This?</h1>
     <h2>Libel</h2>
 
@@ -14,6 +43,7 @@
     {% block content %}{% endblock %}
 
     <footer><a href="{% url 'index' %}">start over</a></footer>
+  </div>
 
 </body>
 </html>

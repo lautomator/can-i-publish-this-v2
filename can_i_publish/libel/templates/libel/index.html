@@ -2,10 +2,12 @@
 
 {% block content %}
 
-    <ul>
-    {% for card in all_cards %}
-        <li><a href="{% url 'card' card.card_slug %}">{{ card.card_slug }}</a></li>
-    {% endfor %}
-    </ul>
+  <h3>Cards</h3>
+
+  <ul>
+  {% for card in all_cards %}
+    <li><a href="{% url 'card' card.card_slug %}">{{ card.card_slug }}</a></li>
+  {% endfor %}
+  </ul>
 
 {% endblock %}
