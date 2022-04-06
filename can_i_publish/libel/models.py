@@ -31,6 +31,9 @@ class Card(models.Model):
         null=True
     )
 
+    choice_one = models.CharField("Choice 1", max_length=32, blank=True, default="yes")
+    choice_two = models.CharField("Choice 2", max_length=32, blank=True, default="no")
+
     def __str__(self):
         return self.card_slug
 
