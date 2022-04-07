@@ -66,8 +66,8 @@ class Relationship(models.Model):
         return self.card.card_slug + ' rel'
 
 
-class Choices(models.Model):
-    # a tally of the current user choices
+class Choice(models.Model):
+    # a summary of user choices. Could be used for metrics
     pass
 
 

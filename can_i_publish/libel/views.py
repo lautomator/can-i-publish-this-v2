@@ -21,3 +21,7 @@ def card(request, card_slug):
     context = {'card': card, 'rel': rel}
 
     return render(request, 'libel/card.html', context)
+
+
+def summary(request, last_card_slug):
+    return render(request, 'libel/summary.html', {'last_card': last_card_slug})

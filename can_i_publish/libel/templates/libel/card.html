@@ -23,7 +23,11 @@
     </tr>
     <tr>
       <td>Choice 1</td>
+      {% if card.choice_one == 'summary' %}
+      <td><a href="{% url 'summary' card.card_slug %}">{{ card.choice_one }}</a></td>
+      {% else %}
       <td><a href="{% url 'card' rel.choice_one_next %}">{{ card.choice_one }}</a></td>
+      {% endif %}
     </tr>
     <tr>
       <td>Choice 2</td>

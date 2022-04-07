@@ -1,0 +1,10 @@
+{% extends "./_base.html" %}
+
+{% block content %}
+
+  <h3>Summary</h3>
+
+  <p>There will be a summary here.</p>
+  <p>The last card was <a href="{% url 'card' last_card %}">{{ last_card }}</a>.</p>
+
+{% endblock %}
