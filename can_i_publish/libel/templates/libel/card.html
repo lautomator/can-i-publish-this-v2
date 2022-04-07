@@ -23,11 +23,11 @@
     </tr>
     <tr>
       <td>Choice 1</td>
-      <td>{{ card.choice_one }}</td>
+      <td><a href="{% url 'card' rel.choice_one_next %}">{{ card.choice_one }}</a></td>
     </tr>
     <tr>
       <td>Choice 2</td>
-      <td>{{ card.choice_two }}</td>
+      <td><a href="{% url 'card' rel.choice_two_next %}">{{ card.choice_two }}</a></td>
     </tr>
     <tr>
       <td>Card Type</td>
@@ -36,6 +36,18 @@
     <tr>
       <td>Status</td>
       <td>{{ card.can_publish_status }}</td>
+    </tr>
+    <tr>
+      <td>Choice 1 next</td>
+      <td>{{ rel.choice_one_next }}</td>
+    </tr>
+    <tr>
+      <td>Choice 2 next</td>
+      <td>{{ rel.choice_two_next }}</td>
+    </tr>
+    <tr>
+      <td>Back / Last Card</td>
+      <td><a href="{% url 'card' rel.choice_back %}">{{ rel.choice_back }}</a></td>
     </tr>
   </table>
 

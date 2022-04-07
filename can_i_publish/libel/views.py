@@ -17,6 +17,7 @@ def index(request):
 
 def card(request, card_slug):
     card = CARDS.get(card_slug=card_slug)
-    context = {'card': card}
+    rel = RELS.get(card=card.id)
+    context = {'card': card, 'rel': rel}
 
     return render(request, 'libel/card.html', context)
