@@ -64,10 +64,3 @@ class Relationship(models.Model):
 
     def __str__(self):
         return self.card.card_slug + ' rel'
-
-
-class Choice(models.Model):
-    # a summary of user choices. Could be used for metrics
-    pass
-
-

@@ -1,0 +1,42 @@
+  <table>
+    <tr>
+      <td>Card Slug</td>
+      <td>{{ card.card_slug }}</td>
+    </tr>
+    <tr>
+      <td>Card Text</td>
+      <td>{% autoescape off %}{{ card.card_text }}{% endautoescape %}</td>
+    </tr>
+    <tr>
+      <td>Choice 1</td>
+      {% if card.choice_one == 'summary' %}
+      <td><a href="{% url 'summary' card.card_slug %}">{{ card.choice_one }}</a></td>
+      {% else %}
+      <td><a href="{% url 'card' rel.choice_one_next %}">{{ card.choice_one }}</a></td>
+      {% endif %}
+    </tr>
+    <tr>
+      <td>Choice 2</td>
+      <td><a href="{% url 'card' rel.choice_two_next %}">{{ card.choice_two }}</a></td>
+    </tr>
+    <tr>
+      <td>Card Type</td>
+      <td>{{ card.card_type }}</td>
+    </tr>
+    <tr>
+      <td>Status</td>
+      <td>{{ card.can_publish_status }}</td>
+    </tr>
+    <tr>
+      <td>Choice 1 next</td>
+      <td>{{ rel.choice_one_next }}</td>
+    </tr>
+    <tr>
+      <td>Choice 2 next</td>
+      <td>{{ rel.choice_two_next }}</td>
+    </tr>
+    <tr>
+      <td>Back / Last Card</td>
+      <td><a href="{% url 'card' rel.choice_back %}">{{ rel.choice_back }}</a></td>
+    </tr>
+  </table>

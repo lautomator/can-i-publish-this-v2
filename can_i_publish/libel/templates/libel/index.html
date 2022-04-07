@@ -2,12 +2,8 @@
 
 {% block content %}
 
-  <h3>Cards</h3>
+  <h3>Home</h3>
 
-  <ul>
-  {% for card in all_cards %}
-    <li><a href="{% url 'card' card.card_slug %}">{{ card.card_slug }}</a></li>
-  {% endfor %}
-  </ul>
+  {% include "./_card.html" %}
 
 {% endblock %}

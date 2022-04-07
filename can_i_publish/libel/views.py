@@ -9,8 +9,9 @@ CARDS = Card.objects.all()
 RELS = Relationship.objects.all()
 
 def index(request):
-    all_cards = CARDS.order_by("card_type")
-    context = {'all_cards': all_cards}
+    card = CARDS.get(card_slug='Q1')
+    rel = RELS.get(card=card.id)
+    context = {'card': card, 'rel': rel}
 
     return render(request, 'libel/index.html', context)
 
