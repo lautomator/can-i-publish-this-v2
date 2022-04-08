@@ -1,19 +1,19 @@
-# from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.template import loader
+from django.urls import reverse
 
 from .models import Card, Relationship
 
-# These are static
+# These are only updated by the admin.
+# They could be part of an API and they
+# are easier to maintain in the Admin.
 CARDS = Card.objects.all()
 RELS = Relationship.objects.all()
 
 def index(request):
-    card = CARDS.get(card_slug='Q1')
-    rel = RELS.get(card=card.id)
-    context = {'card': card, 'rel': rel}
-
-    return render(request, 'libel/index.html', context)
+    # index should go to Q1
+    return HttpResponseRedirect(reverse('card', args=('Q1',)))
 
 
 def card(request, card_slug):
