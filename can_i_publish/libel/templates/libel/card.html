@@ -15,7 +15,10 @@
   <table>
     <tr>
       <td>Card Slug</td>
-      <td>{{ card.card_slug }}</td>
+      <td
+        id="card-slug"
+        data-slug="{{ card.card_slug }}">{{ card.card_slug }}
+      </td>
     </tr>
     <tr>
       <td>Card Text</td>
@@ -51,7 +54,20 @@
     </tr>
     <tr>
       <td>Back / Last Card</td>
-      <td><a href="{% url 'card' rel.choice_back %}">{{ rel.choice_back }}</a></td>
+      <td>
+        {% if card.card_slug != 'Q1' %}
+        <a href="{% url 'card' rel.choice_back %}">{{ rel.choice_back }}</a></td>
+        {% else %}
+        None
+        {% endif %}
+    </tr>
+    <tr>
+      <td>Path</td>
+      <td>{{ card_history.path }}</td>
+    </tr>
+    <tr>
+      <td>Current Card</td>
+      <td>{{ card_history.current_card }}</td>
     </tr>
   </table>
 
