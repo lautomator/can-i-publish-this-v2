@@ -12,6 +12,8 @@
 
   <p>The last card was <a href="{% url 'card' last_card %}">{{ last_card }}</a>.</p>
 
+  <p>Here is a summary of the route you took: {{ card_history.history }}</p>
+
 <!--   The path of the choices (questions answered) will give us the summary
   ex:
 
