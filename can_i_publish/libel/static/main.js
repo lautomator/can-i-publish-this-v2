@@ -36,4 +36,4 @@ var libel_main_script = {
 
 };
 
-libel_main_script.init();
+// libel_main_script.init();
