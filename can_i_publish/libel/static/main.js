@@ -1,39 +1,35 @@
 var libel_main_script = {
-    init_question: "Q1",
     targets: {
-        card_slug: document.querySelector("#card-slug"),
+        choices: document.querySelectorAll(".choice"),
     },
-    store_card_slug(slug) {
-        var history = localStorage.getItem("card_history");
-        // console.log(typeof(history), history);
-        history = history + ", " + slug;
-        localStorage.setItem("card_history", history);
-    },
-    reset: function(slug) {
-        localStorage.clear();
-        localStorage.setItem("card_history", slug);
+    button_click: function (e) {
+        var choice = e.target.dataset.choice;
+        var url_path = "/libel/" + choice;
+        // console.log(choice);
+
+        // if (choice === "None") {
+        //     url_path = "libel/summary/";
+        // }
+
+        window.location.pathname = url_path;
     },
     init: function() {
-        // setup local storage for the card history (first time only)
-        if (localStorage.getItem("card_history") === null) {
-            this.reset(this.init_question);
-        }
+        // listen for button clicks
+        var index = 0;
+        var len = 0;
+        if (this.targets.choices.length !== 0) {
+            len = this.targets.choices.length;
 
-        // get the current card slug
-        if (this.targets.card_slug !== null) {
-            // first, check for a reset: the visitor started over
-            if (this.targets.card_slug.dataset.slug === this.init_question) {
-                this.reset(this.init_question)
-            } else {
-                // add the current card slug to the history
-                this.store_card_slug(this.targets.card_slug.dataset.slug);
+            while (index < this.targets.choices.length) {
+                this.targets.choices[index].onclick = this.button_click;
+                index += 1;
             }
-        }
 
-        console.log(localStorage);
+
+        }
     }
 
 
 };
 
-// libel_main_script.init();
+libel_main_script.init();

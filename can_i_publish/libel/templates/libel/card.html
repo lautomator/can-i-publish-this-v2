@@ -26,16 +26,26 @@
     </tr>
     <tr>
       <td>Choice 1</td>
-      {% if card.choice_one == 'summary' %}
-      <td><a href="{% url 'summary' card.card_slug %}">{{ card.choice_one }}</a></td>
-      {% else %}
-      <td><a href="{% url 'card' rel.choice_one_next %}">{{ card.choice_one }}</a></td>
-      {% endif %}
+      <td>
+        <button
+          class="choice"
+          data-choice="{{ rel.choice_one_next }}">
+          {{ card.choice_one }}
+        </button>
+      </td>
     </tr>
+    {% if card.choice_two != '' %}
     <tr>
       <td>Choice 2</td>
-      <td><a href="{% url 'card' rel.choice_two_next %}">{{ card.choice_two }}</a></td>
+      <td>
+        <button
+          class="choice"
+          data-choice="{{ rel.choice_two_next }}">
+          {{ card.choice_two }}
+        </button>
+      </td>
     </tr>
+    {% endif %}
     <tr>
       <td>Card Type</td>
       <td>{{ card.card_type }}</td>

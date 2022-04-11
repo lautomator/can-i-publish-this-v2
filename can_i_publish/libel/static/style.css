@@ -23,3 +23,7 @@ td:first-of-type {
 td {
   width:  75%;
 }
+
+button {
+  cursor: pointer;
+}
