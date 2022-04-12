@@ -15,9 +15,7 @@
   <table>
     <tr>
       <td>Card Slug</td>
-      <td
-        id="card-slug"
-        data-slug="{{ card.card_slug }}">{{ card.card_slug }}
+      <td>{{ card.card_slug }}
       </td>
     </tr>
     <tr>
@@ -29,7 +27,8 @@
       <td>
         <button
           class="choice"
-          data-choice="{{ rel.choice_one_next }}">
+          data-choice="{{ rel.choice_one_next }}"
+          data-slug="{{ card.card_slug }}">
           {{ card.choice_one }}
         </button>
       </td>
