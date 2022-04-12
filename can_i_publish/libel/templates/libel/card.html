@@ -65,7 +65,11 @@
       <td>Back / Last Card</td>
       <td>
         {% if card.card_slug != 'Q1' %}
-        <a href="{% url 'card' rel.choice_back %}">{{ rel.choice_back }}</a></td>
+        <button
+          class="choice"
+          data-choice="{{ rel.choice_back }}">
+          back to {{ rel.choice_back }}
+        </button>
         {% else %}
         None
         {% endif %}
@@ -78,6 +82,18 @@
       <td>History</td>
       <td>{{ card_history.history }}</td>
     </tr>
+    {% if card.card_slug != 'Q1' %}
+    <tr>
+      <td>Reset Button</td>
+      <td>
+        <button
+          class="choice"
+          data-choice="Q1">
+          start over
+        </button>
+      </td>
+    </tr>
+    {% endif %}
   </table>
 
 {% endblock %}

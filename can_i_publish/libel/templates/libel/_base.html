@@ -14,19 +14,11 @@
     <h1>Can I Publish This?</h1>
     <h2>Libel</h2>
 
-    <!-- could be a nav here -->
-
     {% block content %}{% endblock %}
-
-    <footer>
-      {% if card.card_slug != 'Q1' %}
-      <a href="{% url 'card' 'Q1' %}">start over</a>
-      {% endif %}
-    </footer>
 
   </div>
 
-  <script src="{% static 'main.js' %}?v=16"></script>
+  <script src="{% static 'main.js' %}?v=20220412"></script>
 
 </body>
 </html>

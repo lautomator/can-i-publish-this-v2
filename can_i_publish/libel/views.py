@@ -58,8 +58,11 @@ def card(request, card_slug):
     if card_history['path'][-1] != card_slug and card_history['path'][-1] != rel.choice_back:
         update_card_history(card_slug)
 
-    context = {'card': card, 'rel': rel, 'card_history': card_history}
-
+    context = {
+        'card': card,
+        'rel': rel,
+        'card_history': card_history
+    }
     return render(request, 'libel/card.html', context)
 
 
