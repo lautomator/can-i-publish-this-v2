@@ -80,12 +80,7 @@
     </tr>
     <tr>
       <td>History</td>
-      <td>
-        {% for card in card_history.history %}
-          In card {{ card }} you chose [answer].<br>
-        {% endfor %}
-        {{ card_history.history }}
-      </td>
+      <td>{{ card_history.history }}</td>
     </tr>
     {% if card.card_slug != 'Q1' %}
     <tr>
