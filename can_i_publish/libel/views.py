@@ -23,9 +23,11 @@ card_history = {
 
 def update_card_history(slug):
     card_history['path'].append(slug)
+    slug_first_char = slug[0]
+    card_type_exceptions = ['A', 'E']
 
     # do not include duplicates, continuation cards, and end cards
-    if slug not in card_history['history'] and slug[0] != 'A':
+    if slug_first_char not in card_type_exceptions and slug not in card_history['history']:
         card_history['history'].append(slug)
 
 
