@@ -7,22 +7,28 @@
   <table>
     <tr>
       <td>Last Card</td>
-      <td>
+      <td colspan="2">
         <button
           class="choice"
           data-choice="{{ last_card }}">
           back to {{ last_card }}
         </button>
     </tr>
-    {% for slug, answer in answers.items %}
     <tr>
-      <td>{{ slug }}</td>
-      <td>{{ answer }}</td>
+      <td>Slug</td>
+      <td>Question</td>
+      <td>Answer</td>
+    </tr>
+    {% for item in summary %}
+    <tr>
+      <td>{{ item.slug }}</td>
+      <td>{% autoescape off %}{{ item.question }}{% endautoescape %} </td>
+      <td>{{ item.answer }}</td>
     </tr>
     {% endfor %}
     <tr>
       <td>Reset Button</td>
-      <td>
+      <td colspan="2">
         <button
           class="choice"
           data-choice="Q1">

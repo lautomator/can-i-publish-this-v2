@@ -29,44 +29,18 @@ def update_card_history(slug):
         card_history['history'].append(slug)
 
 
-
 def reset_card_history():
     card_history['path'] = []
     card_history['history'] = []
 
 
+def get_question(slug):
+    all_cards = CARDS
+    question = all_cards.get(card_slug=slug).card_text
+    return question
+
+
 def get_answer(slug, next_slug):
-    """
-    you can get the answer to the question by looking at
-    the previous slug choices (rels). You get that slug from
-    the history (the previous slug) and matching it with the
-    next slug in the history.
-    ex history: [Q1, Q2, E2]
-    Q1 choice = if rel.choice Q1 == Q2 then rel.choice = rel.choice 'yes'
-
-    >>> from libel.models import Card, Relationship
-    >>> CARDS = Card.objects.all()
-    >>> RELS = Relationship.objects.all()
-    >>> card = CARDS.get(card_slug='Q1')
-    >>> card
-    <Card: Q1>
-    >>> card.choice_one
-    'yes'
-    >>> rel = RELS.get(card=card.id)
-    >>> rel
-    <Relationship: Q1 rel>
-    >>> rel.choice_one_next
-    <Card: Q2>
-    >>> rel.choice_two_next
-    <Card: E1>
-    rel.choice_two_next.card_slug == 'E1'
-    True
-    >>> card.choice_two
-    'no'
-
-    Therefore, you answered 'no' to Question Q1.
-    """
-
     card = CARDS.get(card_slug=slug)
     rel = RELS.get(card=card.id)
     answer_text = ''
@@ -75,20 +49,22 @@ def get_answer(slug, next_slug):
         answer_text = card.choice_one
     else :
         answer_text = card.choice_two
-
     return answer_text
 
 
-def gen_answer_index():
-    answers = {}
+def gen_summary():
+    summary = []
     history = card_history['history']
     index = 0
 
     while index < (len(history) - 1):
-        answers[history[index]] = get_answer(history[index], history[index + 1])
-        index += 1;
-
-    return answers
+        summary.append({
+            'slug': history[index],
+            'question': get_question(history[index]),
+            'answer': get_answer(history[index], history[index + 1])
+        })
+        index += 1
+    return summary
 
 
 # ~~~~~~~~~~~~~~~~~~~
@@ -127,7 +103,7 @@ def summary(request, last_card_slug):
     context = {
         'last_card': last_card_slug,
         'card_history': card_history,
-        'answers': gen_answer_index()
+        'summary': gen_summary()
     }
     return render(request, 'libel/summary.html', context)
 
