@@ -34,6 +34,15 @@ def reset_card_history():
     card_history['history'] = []
 
 
+def can_publish_status(slug):
+    # needs to be an end card
+    if slug[0] == 'E':
+        status = CARDS.get(card_slug=slug).can_publish_status
+    else:
+        status = 'n/a'
+    return status
+
+
 def get_question(slug):
     all_cards = CARDS
     question = all_cards.get(card_slug=slug).card_text
@@ -103,6 +112,7 @@ def summary(request, last_card_slug):
     context = {
         'last_card': last_card_slug,
         'card_history': card_history,
+        'pub_status': can_publish_status(last_card_slug),
         'summary': gen_summary()
     }
     return render(request, 'libel/summary.html', context)

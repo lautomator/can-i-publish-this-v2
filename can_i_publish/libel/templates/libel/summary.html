@@ -27,6 +27,18 @@
     </tr>
     {% endfor %}
     <tr>
+      <td>Can Publish Status</td>
+      <td colspan="2">
+        {% if pub_status == 'yes' %}
+        <p><strong>&check;</strong> <em>can publish</em></p>
+        {% elif pub_status == 'no' %}
+        <p><strong>&#10005;</strong> <em>pause</em></p>
+        {% else %}
+        <p>n/a</p>
+        {% endif %}
+      </td>
+    </tr>
+    <tr>
       <td>Reset Button</td>
       <td colspan="2">
         <button
