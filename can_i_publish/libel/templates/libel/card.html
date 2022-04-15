@@ -62,14 +62,10 @@
       <td>{{ rel.choice_two_next }}</td>
     </tr>
     <tr>
-      <td>Back / Last Card</td>
+      <td>Last Card</td>
       <td>
         {% if card.card_slug != 'Q1' %}
-        <button
-          class="choice"
-          data-choice="{{ rel.choice_back }}">
-          back to {{ rel.choice_back }}
-        </button>
+        {{ rel.choice_back }}
         {% else %}
         None
         {% endif %}

@@ -64,3 +64,12 @@ class Relationship(models.Model):
 
     def __str__(self):
         return self.card.card_slug + ' rel'
+
+
+class Metric(models.Model):
+    card_slug = models.CharField("Card Slug", max_length=4, null=True)
+    card_choice_one = models.IntegerField("Choice 1", default=0)
+    card_choice_two = models.IntegerField("Choice 2", default=0)
+
+    def __str__(self):
+        return self.card_slug

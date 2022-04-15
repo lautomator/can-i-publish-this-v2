@@ -7,12 +7,7 @@
   <table>
     <tr>
       <td>Last Card</td>
-      <td colspan="2">
-        <button
-          class="choice"
-          data-choice="{{ last_card }}">
-          back to {{ last_card }}
-        </button>
+      <td colspan="2">{{ last_card }}</td>
     </tr>
     <tr>
       <td>Slug</td>
@@ -47,6 +42,16 @@
           start over
         </button>
       </td>
+    </tr>
+
+    <!-- TEMP -->
+    <tr>
+      <td>Path</td>
+      <td colspan="2">{{ card_history.path }}</td>
+    </tr>
+    <tr>
+      <td>History</td>
+      <td colspan="2">{{ card_history.history }}</td>
     </tr>
   </table>
 

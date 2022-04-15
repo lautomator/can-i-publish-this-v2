@@ -65,6 +65,7 @@ def get_answer(slug, next_slug):
 
 def gen_summary():
     summary = []
+    path = card_history['path']
     history = card_history['history']
     index = 0
 
@@ -75,6 +76,13 @@ def gen_summary():
             'answer': get_answer(history[index], history[index + 1])
         })
         index += 1
+    # add the last item
+    summary.append({
+        'slug': history[-1],
+        'question': get_question(history[-1]),
+        'answer': get_answer(history[-1], path[-1])
+    })
+
     return summary
 
 
@@ -99,7 +107,8 @@ def card(request, card_slug):
 
     # avoid duplicate hits if the page is refreshed
     # or if the user goes back to the earlier state.
-    if card_history['path'][-1] != card_slug and card_history['path'][-1] != rel.choice_back:
+    if card_history['path'][-1] != card_slug and\
+        card_history['path'][-1] != rel.choice_back:
         update_card_history(card_slug)
 
     context = {
@@ -111,6 +120,11 @@ def card(request, card_slug):
 
 
 def summary(request, last_card_slug):
+    # TODO
+    # summary should trigger the history for the user
+    # and also write to the database those metrics
+    # cards and answers to those cards
+
     context = {
         'last_card': last_card_slug,
         'card_history': card_history,
