@@ -7,23 +7,25 @@
   <table>
     <tr>
       <td>Last Card</td>
-      <td colspan="2">{{ last_card }}</td>
+      <td colspan="3">{{ last_card }}</td>
     </tr>
     <tr>
       <td>Slug</td>
       <td>Question</td>
       <td>Answer</td>
+      <td>Choice #</td>
     </tr>
     {% for item in summary %}
     <tr>
       <td>{{ item.slug }}</td>
       <td>{% autoescape off %}{{ item.question }}{% endautoescape %} </td>
-      <td>{{ item.answer }}</td>
+      <td>{{ item.answer.1 }}</td>
+      <td>{{ item.answer.0 }}</td>
     </tr>
     {% endfor %}
     <tr>
       <td>Can Publish Status</td>
-      <td colspan="2">
+      <td colspan="3">
         {% if pub_status == 'yes' %}
         <p><strong>&check;</strong> <em>can publish</em></p>
         {% elif pub_status == 'no' %}
@@ -35,7 +37,7 @@
     </tr>
     <tr>
       <td>Reset Button</td>
-      <td colspan="2">
+      <td colspan="3">
         <button
           class="choice"
           data-choice="Q1">
@@ -47,12 +49,24 @@
     <!-- TEMP -->
     <tr>
       <td>Path</td>
-      <td colspan="2">{{ card_history.path }}</td>
+      <td colspan="3">{{ card_history.path }}</td>
     </tr>
     <tr>
       <td>History</td>
-      <td colspan="2">{{ card_history.history }}</td>
+      <td colspan="3">{{ card_history.history }}</td>
+    </tr>
+    <tr>
+      <td>Metrics Button</td>
+      <td colspan="3">
+        <button
+          class="choice"
+          data-choice="metrics">
+          metrics
+        </button>
+      </td>
     </tr>
   </table>
+
+  <code>{{ summary }}</code>
 
 {% endblock %}

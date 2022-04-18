@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.template import loader
 from django.urls import reverse
 
-from .models import Card, Relationship
+from .models import Card, Relationship, Metric
 
 
 # These are only updated by the admin.
@@ -54,13 +54,13 @@ def get_question(slug):
 def get_answer(slug, next_slug):
     card = CARDS.get(card_slug=slug)
     rel = RELS.get(card=card.id)
-    answer_text = ''
+    answer_choice_and_text = []
 
     if rel.choice_one_next.card_slug == next_slug:
-        answer_text = card.choice_one
+        answer_choice_and_text = ['1', card.choice_one]
     else :
-        answer_text = card.choice_two
-    return answer_text
+        answer_choice_and_text = ['2', card.choice_two]
+    return answer_choice_and_text
 
 
 def gen_summary():
@@ -84,6 +84,10 @@ def gen_summary():
     })
 
     return summary
+
+
+def set_metrics(summary):
+    metrics = Metric.objects.all()
 
 
 # ~~~~~~~~~~~~~~~~~~~
@@ -119,17 +123,25 @@ def card(request, card_slug):
     return render(request, 'libel/card.html', context)
 
 
-def summary(request, last_card_slug):
-    # TODO
-    # summary should trigger the history for the user
-    # and also write to the database those metrics
-    # cards and answers to those cards
-
+def summary(request):
+    last_card_slug = card_history['history'][-1]
+    summary = gen_summary()
+    set_metrics(summary)
     context = {
         'last_card': last_card_slug,
         'card_history': card_history,
         'pub_status': can_publish_status(last_card_slug),
-        'summary': gen_summary()
+        'summary': summary
     }
     return render(request, 'libel/summary.html', context)
 
+
+def metrics(request):
+    #will get from the DB
+    context = {}
+    return render(request, 'libel/metrics.html', context)
+
+# TODO
+# Metrics
+# front end work
+# Lint JS and HTML

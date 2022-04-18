@@ -8,7 +8,7 @@ var libel_main_script = {
         var url_path = "/libel/" + choice;
 
         if (choice === "None") {
-            url_path = "libel/" + slug + "/summary/";
+            url_path = "libel/summary/";
         }
 
         window.location.pathname = url_path;
