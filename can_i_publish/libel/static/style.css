@@ -5,7 +5,8 @@
 }
 
 table,
-td {
+td,
+th {
   border: 1px dashed gray;
   border-collapse: collapse;
   box-sizing: border-box;

@@ -7,19 +7,24 @@
   <table>
     <thead>
       <tr>
-        <th>Q. Slug</th>
+        <th>Slug</th>
         <th>Question</th>
-        <th>Choice One Count</th>
-        <th>Choice Two Count</th>
+        <th colspan="2">Count</th>
       </tr>
     </thead>
     <tbody>
-        <tr>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-        </tr>
+      {% for item in metrics_grid %}
+      <tr>
+        <td rowspan="2">{{ item.q_slug }}</td>
+        <td rowspan="2">{% autoescape off %}{{ item.question }}{% endautoescape %}</td>
+        <td>{{ item.choice_one }}</td>
+        <td>{{ item.choice_two }}</td>
+      </tr>
+      <tr>
+        <td>{{ item.count_one }}</td>
+        <td>{{ item.count_two }}</td>
+      </tr>
+      {% endfor %}
     </tbody>
   </table>
 

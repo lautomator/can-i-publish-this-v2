@@ -82,7 +82,6 @@ def gen_summary():
         'question': get_question(history[-1]),
         'answer': get_answer(history[-1], path[-1])
     })
-
     return summary
 
 
@@ -111,6 +110,20 @@ def set_metrics(summary):
         record.save()
         # reset
         record = None
+
+
+def set_metrics_grid(metrics_objects):
+    metrics_grid = []
+    for item in metrics_objects:
+        metrics_grid.append({
+            'q_slug': item.card_slug,
+            'question': get_question(item.card_slug),
+            'choice_one': CARDS.get(card_slug=item.card_slug).choice_one,
+            'count_one': item.card_choice_one,
+            'choice_two': CARDS.get(card_slug=item.card_slug).choice_two,
+            'count_two': item.card_choice_two
+        })
+    return metrics_grid
 
 
 # ~~~~~~~~~~~~~~~~~~~
@@ -160,11 +173,11 @@ def summary(request):
 
 
 def metrics(request):
-    #will get from the DB
-    context = {}
+    all_questions_counted = Metric.objects.order_by('card_slug')
+    metrics_grid = set_metrics_grid(all_questions_counted)
+    context = { 'metrics_grid': metrics_grid}
     return render(request, 'libel/metrics.html', context)
 
 # TODO
-# Metrics
 # front end work
 # Lint JS and HTML
