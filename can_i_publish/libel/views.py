@@ -87,7 +87,30 @@ def gen_summary():
 
 
 def set_metrics(summary):
-    metrics = Metric.objects.all()
+    # Iterate through the summary list.
+    # If a slug matches a card_slug in the table,
+    # add an increment to the appropriate choice count (one or two).
+    # If it does not match an existing slug, create the new record
+    # and add the increment to the appropriate choice count.
+    record = None
+
+    for item in summary:
+        if Metric.objects.filter(card_slug=item['slug']):
+            # found a record with the existing slug
+            record = Metric.objects.get(card_slug=item['slug'])
+        else:
+            # need to create a new table row (record)
+            record = Metric(card_slug=item['slug'])
+
+        # update the question count
+        if item['answer'][0] == '1':
+            record.card_choice_one += 1
+        else :
+            record.card_choice_two += 1
+
+        record.save()
+        # reset
+        record = None
 
 
 # ~~~~~~~~~~~~~~~~~~~
