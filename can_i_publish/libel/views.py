@@ -17,6 +17,7 @@ card_history = {
     'history': ['Q1'],
 }
 
+
 # ~~~~~~~~~~~~~~~~~~~
 # Functions
 # ~~~~~~~~~~~~~~~~~~~
@@ -180,4 +181,4 @@ def metrics(request):
 
 # TODO
 # front end work
-# Lint JS and HTML
+# Lint HTML
