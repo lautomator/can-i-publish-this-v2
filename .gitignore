@@ -1,4 +1,5 @@
 .DS_Store
+secrets.py
 env/
 map/
 __init__.py
