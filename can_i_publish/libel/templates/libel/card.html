@@ -2,94 +2,45 @@
 
 {% block content %}
 
-  <h3>{{ card.card_slug }}</h3>
+  <div class="card">
+    <div class="can_publish_status">
+      {% if card.can_publish_status == 'yes' %}
+      <p><strong>&check;</strong> <em>can publish</em></p>
+      {% endif %}
 
-  {% if card.can_publish_status == 'yes' %}
-  <p><strong>&check;</strong> <em>can publish</em></p>
-  {% endif %}
+      {% if card.can_publish_status == 'no' %}
+      <p><strong>&#10005;</strong> <em>pause</em></p>
+      {% endif %}
+    </div>
 
-  {% if card.can_publish_status == 'no' %}
-  <p><strong>&#10005;</strong> <em>pause</em></p>
-  {% endif %}
+    <h3>{% autoescape off %}{{ card.card_text }}{% endautoescape %}</h3>
 
-  <table>
-    <tr>
-      <td>Card Slug</td>
-      <td>{{ card.card_slug }}
-      </td>
-    </tr>
-    <tr>
-      <td>Card Text</td>
-      <td>{% autoescape off %}{{ card.card_text }}{% endautoescape %}</td>
-    </tr>
-    <tr>
-      <td>Choice 1</td>
-      <td>
-        <button
-          class="choice"
-          data-choice="{{ rel.choice_one_next }}"
-          data-slug="{{ card.card_slug }}">
-          {{ card.choice_one }}
-        </button>
-      </td>
-    </tr>
-    {% if card.choice_two != '' %}
-    <tr>
-      <td>Choice 2</td>
-      <td>
-        <button
-          class="choice"
-          data-choice="{{ rel.choice_two_next }}">
-          {{ card.choice_two }}
-        </button>
-      </td>
-    </tr>
-    {% endif %}
-    <tr>
-      <td>Card Type</td>
-      <td>{{ card.card_type }}</td>
-    </tr>
-    <tr>
-      <td>Status</td>
-      <td>{{ card.can_publish_status }}</td>
-    </tr>
-    <tr>
-      <td>Choice 1 next</td>
-      <td>{{ rel.choice_one_next }}</td>
-    </tr>
-    <tr>
-      <td>Choice 2 next</td>
-      <td>{{ rel.choice_two_next }}</td>
-    </tr>
-    <tr>
-      <td>Last Card</td>
-      <td>
-        {% if card.card_slug != 'Q1' %}
-        {{ rel.choice_back }}
-        {% else %}
-        None
-        {% endif %}
-    </tr>
-    <tr>
-      <td>Path</td>
-      <td>{{ card_history.path }}</td>
-    </tr>
-    <tr>
-      <td>History</td>
-      <td>{{ card_history.history }}</td>
-    </tr>
-    {% if card.card_slug != 'Q1' %}
-    <tr>
-      <td>Reset Button</td>
-      <td>
+    <div class="choice_buttons">
+      <button
+        class="choice"
+        data-choice="{{ rel.choice_one_next }}"
+        data-slug="{{ card.card_slug }}">
+        {{ card.choice_one }}
+      </button>
+
+      {% if card.choice_two != '' %}
+      <button
+        class="choice"
+        data-choice="{{ rel.choice_two_next }}">
+        {{ card.choice_two }}
+      </button>
+      {% endif %}
+    </div>
+
+    <div class="start_over_button">
+      {% if card.card_slug != 'Q1' %}
         <button
           class="choice"
           data-choice="Q1">
           start over
         </button>
-      </td>
-    </tr>
-    {% endif %}
-  </table>
+      {% endif %}
+    </div>
+  </div><!-- /card -->
 
 {% endblock %}

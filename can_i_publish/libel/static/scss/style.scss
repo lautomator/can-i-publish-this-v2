@@ -1,30 +1,21 @@
-/* TEMP */
-.container {
-  margin: 20px auto;
-  width:  600px;
-}
+// colors
+$wht: #ffffff;
+$blu: #25b3fb;
+$gry: #40484a;
 
-table,
-td,
-th {
-  border: 1px dashed gray;
-  border-collapse: collapse;
-  box-sizing: border-box;
-  padding: 10px;
-}
+// fonts
+$main_font: 'Poppins', sans-serif;
+// Poppins weights: 300, 400, 500, 600
+$lgt: 300;
+$reg: 400;
+$med: 500;
+$bld: 600;
 
-table {
-  width:  100%;
-}
+// dimensions desktop
+$container: 600px;
+$card_width: 400px;
+$card_height: auto;
+// dimensions mobile
+$container: 100%;
+$card_width: 90%;
 
-td:first-of-type {
-  width:  25%;
-}
-
-td {
-  width:  75%;
-}
-
-button {
-  cursor: pointer;
-}

@@ -2,69 +2,52 @@
 
 {% block content %}
 
+<div class="summary">
+
   <h3>Summary</h3>
 
   <table>
-    <tr>
-      <td>Last Card</td>
-      <td colspan="3">{{ last_card }}</td>
-    </tr>
-    <tr>
-      <td>Slug</td>
-      <td>Question</td>
-      <td>Answer</td>
-      <td>Choice #</td>
-    </tr>
-    {% for item in summary %}
-    <tr>
-      <td>{{ item.slug }}</td>
-      <td>{% autoescape off %}{{ item.question }}{% endautoescape %} </td>
-      <td>{{ item.answer.1 }}</td>
-      <td>{{ item.answer.0 }}</td>
-    </tr>
-    {% endfor %}
-    <tr>
-      <td>Can Publish Status</td>
-      <td colspan="3">
-        {% if pub_status == 'yes' %}
-        <p><strong>&check;</strong> <em>can publish</em></p>
-        {% elif pub_status == 'no' %}
-        <p><strong>&#10005;</strong> <em>pause</em></p>
-        {% else %}
-        <p>n/a</p>
-        {% endif %}
-      </td>
-    </tr>
-    <tr>
-      <td>Reset Button</td>
-      <td colspan="3">
-        <button
-          class="choice"
-          data-choice="Q1">
-          start over
-        </button>
-      </td>
-    </tr>
-
-    <!-- TEMP -->
-    <tr>
-      <td>Path</td>
-      <td colspan="3">{{ card_history.path }}</td>
-    </tr>
-    <tr>
-      <td>History</td>
-      <td colspan="3">{{ card_history.history }}</td>
-    </tr>
-    <tr>
-      <td>Metrics Button</td>
-      <td colspan="3">
-        <button
-          class="choice"
-          data-choice="metrics">
-          metrics
-        </button>
-      </td>
-    </tr>
+    <thead>
+      <th>Question</th>
+      <th>Answer</th>
+    </thead>
+    <tbody>
+      {% for item in summary %}
+      <tr>
+        <td>{% autoescape off %}{{ item.question }}{% endautoescape %} </td>
+        <td>{{ item.answer.1 }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
   </table>
+
+
+  <div class="can_publish_status">
+    {% if card.can_publish_status == 'yes' %}
+    <p><strong>&check;</strong> <em>can publish</em></p>
+    {% endif %}
+
+    {% if card.can_publish_status == 'no' %}
+    <p><strong>&#10005;</strong> <em>pause</em></p>
+    {% endif %}
+  </div>
+
+  <div class="metrics">
+    <button
+      class="choice"
+      data-choice="metrics">
+      metrics
+    </button>
+  </div>
+
+  <div class="start_over_button">
+    <button
+      class="choice"
+      data-choice="Q1">
+      start over
+    </button>
+  </div>
+
+</div><!-- /summary -->
 
 {% endblock %}

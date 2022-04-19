@@ -5,18 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Libel</title>
 
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+
   {% load static %}
-  <link rel="stylesheet" type="text/css" href="{% static 'style.min.css' %}?v=20220419">
+  <link rel="stylesheet" type="text/css" href="{% static 'normalize.min.css' %}?v=8.0.1">
+  <!-- TODO: use min file once the styles are complete -->
+  <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}?v=20220419a">
+
 
 </head>
 <body>
   <div class="container">
-    <h1>Can I Publish This?</h1>
-    <h2>Libel</h2>
+    <header>
+      <h1>Can I Publish This?</h1>
+      <h2>Libel</h2>
+    </header>
 
     {% block content %}{% endblock %}
 
-  </div>
+  </div><!-- /container -->
 
   <script src="{% static 'main.min.js' %}?v=20220419"></script>
 
