@@ -2,12 +2,12 @@
 
 {% block content %}
 
+<div class="summary">
   <h3>Metrics</h3>
 
   <table>
     <thead>
       <tr>
-        <th>Slug</th>
         <th>Question</th>
         <th colspan="2">Count</th>
       </tr>
@@ -15,7 +15,6 @@
     <tbody>
       {% for item in metrics_grid %}
       <tr>
-        <td rowspan="2">{{ item.q_slug }}</td>
         <td rowspan="2">{% autoescape off %}{{ item.question }}{% endautoescape %}</td>
         <td>{{ item.choice_one }}</td>
         <td>{{ item.choice_two }}</td>
@@ -27,6 +26,16 @@
       {% endfor %}
     </tbody>
   </table>
+
+  <div class="start_over_button">
+    <button
+      class="choice"
+      data-choice="Q1">
+      start over
+    </button>
+  </div>
+
+</div><!-- /summary -->
 
 {% endblock %}
 

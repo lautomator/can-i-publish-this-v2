@@ -3,24 +3,24 @@
 {% block content %}
 
 <div class="summary">
-
   <h3>Summary</h3>
 
-  <table>
-    <thead>
-      <th>Question</th>
-      <th>Answer</th>
-    </thead>
-    <tbody>
-      {% for item in summary %}
-      <tr>
-        <td>{% autoescape off %}{{ item.question }}{% endautoescape %} </td>
-        <td>{{ item.answer.1 }}</td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-
+  <div class="summary_grid">
+    <table>
+      <thead>
+        <th>Question</th>
+        <th>Answer</th>
+      </thead>
+      <tbody>
+        {% for item in summary %}
+        <tr>
+          <td>{% autoescape off %}{{ item.question }}{% endautoescape %} </td>
+          <td>{{ item.answer.1 }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
 
   <div class="can_publish_status">
     {% if card.can_publish_status == 'yes' %}

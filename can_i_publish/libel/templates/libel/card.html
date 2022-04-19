@@ -13,7 +13,9 @@
       {% endif %}
     </div>
 
-    <h3>{% autoescape off %}{{ card.card_text }}{% endautoescape %}</h3>
+    <p class="question_txt">
+      {% autoescape off %}{{ card.card_text }}{% endautoescape %}
+    </p>
 
     <div class="choice_buttons">
       <button
