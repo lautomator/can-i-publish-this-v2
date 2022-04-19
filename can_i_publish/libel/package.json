@@ -1,0 +1,36 @@
+{
+    "name": "CIPT",
+    "version": "1.0.0",
+    "description": "These are the build scripts for the Can I Publish This? Libel Module",
+    "watch": {
+        "sass": {
+            "patterns": ["static/scss"],
+            "extensions": "scss"
+        },
+        "jsmin": {
+            "patterns": ["static"],
+            "ignore": ["static/scripts/main.min.js"],
+            "extensions": "js"
+        }
+    },
+    "scripts": {
+        "compile": "sass static/scss/style.scss static/style.css",
+        "jsmin": "minify static/main.js > static/main.min.js",
+        "sass": "sass static/scss/style.scss static/style.css && npm run minify",
+        "minify": "minify static/style.css > static/style.min.css && npm run jsmin",
+        "build": "npm run compile && npm run minify"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/lautomator/can-i-publish-this-v2"
+    },
+    "author": "John Merigliano",
+    "email": "jmerigliano@gmail.com",
+    "url": "https://canipublishthis.com/",
+    "license": "ISC",
+    "homepage": "",
+    "dependencies": {
+        "minify": "^5.1.1",
+        "sass": "^1.26.10"
+    }
+}

@@ -4,4 +4,7 @@ map/
 __init__.py
 __pycache__/
 migrations
+node_modules/
+package-lock.json
+style.css.map
 
