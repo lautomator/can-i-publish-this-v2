@@ -1,21 +1,77 @@
-// colors
-$wht: #ffffff;
-$blu: #25b3fb;
-$gry: #40484a;
+@import "base";
 
-// fonts
-$main_font: 'Poppins', sans-serif;
-// Poppins weights: 300, 400, 500, 600
-$lgt: 300;
-$reg: 400;
-$med: 500;
-$bld: 600;
+// ~~~~~~~~
+// main
+// ~~~~~~~~
+body {
+    font-family: $main_font;
+    margin: 0;
+    padding: 0;
+}
 
-// dimensions desktop
-$container: 600px;
-$card_width: 400px;
-$card_height: auto;
-// dimensions mobile
-$container: 100%;
-$card_width: 90%;
+.container {
+    background-color: $wht;
+    margin: 0 auto;
+    padding: $slug;
+    width: $container;
+}
+
+h1,
+h2,
+h3 {
+    margin: 0;
+}
+
+header {
+    text-align: center;
+}
+
+
+// ~~~~~~~~
+// card
+// ~~~~~~~~
+.card {
+    background-color: $wht;
+    // box-shadow: 3px 3px 4px $a_gry;
+    border: 1px dotted $a_gry;
+    box-sizing: border-box;
+    margin: 0 auto;
+    min-height: 600px;
+    padding: $slug;
+    width: $card_width;
+
+    .question_txt {
+        color: $blu;
+    }
+}
+
+button {
+    cursor: pointer;
+}
+
+.choice_buttons {
+    button {
+        background-color: $wht;
+        border: 1px dotted $gry;
+        border-radius: 8px;
+        color: $gry;
+        display: block;
+        margin: $slug 0;
+        min-height: 40px;
+        width: $full;
+    }
+}
+
+.start_over_button {
+    button {
+        background-color: $blu;
+        border: 0;
+        border-radius: 8px;
+        color: $wht;
+        display: block;
+        margin: $slug 0;
+        min-height: 40px;
+        width: $full;
+    }
+}
 

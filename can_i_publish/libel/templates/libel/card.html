@@ -13,9 +13,9 @@
       {% endif %}
     </div>
 
-    <p class="question_txt">
+    <div class="question_txt">
       {% autoescape off %}{{ card.card_text }}{% endautoescape %}
-    </p>
+    </div>
 
     <div class="choice_buttons">
       <button
@@ -30,6 +30,14 @@
         class="choice"
         data-choice="{{ rel.choice_two_next }}">
         {{ card.choice_two }}
+      </button>
+      {% endif %}
+
+      {% if card.choice_one != 'continue' %}
+      <button
+        class="choice"
+        data-choice="continue">
+        continue
       </button>
       {% endif %}
     </div>
