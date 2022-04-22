@@ -21,7 +21,7 @@
       {% if card.choice_one != 'next' %}
       <div class="choice_buttons">
         <button
-          class="choice"
+          class="choice {% if card.choice_one == 'summary' %}has_focus{% endif %}"
           data-choice="{{ rel.choice_one_next }}"
           data-slug="{{ card.card_slug }}">
           {{ card.choice_one }}
@@ -34,38 +34,42 @@
           {{ card.choice_two }}
         </button>
         {% endif %}
+
+        <div class="start_over_button">
+          {% if card.card_slug != 'Q1' %}
+            <button
+              class="choice"
+              data-choice="Q1">
+              start over
+            </button>
+          {% endif %}
+        </div>
       </div>
       {% endif %}
-
-      <div class="start_over_button">
-        {% if card.card_slug != 'Q1' %}
-          <button
-            class="choice"
-            data-choice="Q1">
-            start over
-          </button>
-        {% endif %}
-      </div>
     </div><!-- /card_content -->
 
-    {% if card.choice_one != 'next' %}
+
+
+    {% if card.choice_one != 'next' and card.choice_one != 'summary' %}
     <div class="continue_button_section">
       <button
         id="submit_choice"
-        class="is_hidden">
+        disabled
+        autocomplete="off">
         continue
       </button>
     </div>
-    {% else %}
+    {% endif %}
+
+    {% if card.choice_one == 'next' %}
     <div class="continue_button_section">
       <button
-        class="choice"
+        class="choice is_active"
         data-choice="{{ rel.choice_one_next }}"
         data-slug="{{ card.card_slug }}">
         next
       </button>
     </div>
-
     {% endif %}
 
   </div><!-- /card -->

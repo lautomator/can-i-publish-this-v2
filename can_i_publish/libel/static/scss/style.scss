@@ -64,7 +64,8 @@ button {
         min-height: 40px;
         width: $full;
 
-        &:focus {
+        &:focus,
+        &.has_focus {
             background-color: $blu;
             border: 1px solid $wht;
             color: $wht;
@@ -87,14 +88,21 @@ button {
 
 .continue_button_section {
     button {
-        background-color: $blu;
+        background-color: $b_gry;
         border: 0;
         bottom: 0;
-        color: $wht;
+        color: $a_gry;
+        cursor: default;
         display: block;
         height: 80px;
         position: relative;
         width: $full;
+
+        &.is_active {
+            background-color: $blu;
+            color: $wht;
+            cursor: pointer;
+        }
     }
 }
 

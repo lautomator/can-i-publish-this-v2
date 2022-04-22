@@ -51,7 +51,7 @@ button {
   min-height: 40px;
   width: 100%;
 }
-.choice_buttons button:focus {
+.choice_buttons button:focus, .choice_buttons button.has_focus {
   background-color: #25b3fb;
   border: 1px solid #ffffff;
   color: #ffffff;
@@ -69,14 +69,20 @@ button {
 }
 
 .continue_button_section button {
-  background-color: #25b3fb;
+  background-color: rgba(0, 0, 0, 0.1);
   border: 0;
   bottom: 0;
-  color: #ffffff;
+  color: rgba(0, 0, 0, 0.3);
+  cursor: default;
   display: block;
   height: 80px;
   position: relative;
   width: 100%;
+}
+.continue_button_section button.is_active {
+  background-color: #25b3fb;
+  color: #ffffff;
+  cursor: pointer;
 }
 
 .is_hidden {

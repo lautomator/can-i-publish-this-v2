@@ -15,11 +15,8 @@ var libel_main_script = {
             window.location.pathname = url_path + "Q1/";
         } else {
             if (submit_btn !== null) {
-                if (submit_btn.classList.contains("is_hidden")) {
-                    // show the submit button
-                    submit_btn.classList.remove("is_hidden");
-                    submit_btn.classList.add("is_visible");
-                }
+                submit_btn.removeAttribute("disabled");
+                submit_btn.classList.add("is_active");
 
                 // clicking the continue button will initiate the new request
                 submit_btn.onclick = function () {
