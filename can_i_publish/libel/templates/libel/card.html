@@ -13,44 +13,49 @@
       {% endif %}
     </div>
 
-    <div class="question_txt">
-      {% autoescape off %}{{ card.card_text }}{% endautoescape %}
-    </div>
+    <div class="card_content">
+      <div class="question_txt">
+        {% autoescape off %}{{ card.card_text }}{% endautoescape %}
+      </div>
 
-    <div class="choice_buttons">
-      <button
-        class="choice"
-        data-choice="{{ rel.choice_one_next }}"
-        data-slug="{{ card.card_slug }}">
-        {{ card.choice_one }}
-      </button>
-
-      {% if card.choice_two != '' %}
-      <button
-        class="choice"
-        data-choice="{{ rel.choice_two_next }}">
-        {{ card.choice_two }}
-      </button>
-      {% endif %}
-
-      {% if card.choice_one != 'continue' %}
-      <button
-        class="choice"
-        data-choice="continue">
-        continue
-      </button>
-      {% endif %}
-    </div>
-
-    <div class="start_over_button">
-      {% if card.card_slug != 'Q1' %}
+      <div class="choice_buttons">
         <button
           class="choice"
-          data-choice="Q1">
-          start over
+          data-choice="{{ rel.choice_one_next }}"
+          data-slug="{{ card.card_slug }}">
+          {{ card.choice_one }}
         </button>
-      {% endif %}
+
+        {% if card.choice_two != '' %}
+        <button
+          class="choice"
+          data-choice="{{ rel.choice_two_next }}">
+          {{ card.choice_two }}
+        </button>
+        {% endif %}
+      </div>
+
+      <div class="start_over_button">
+        {% if card.card_slug != 'Q1' %}
+          <button
+            class="choice"
+            data-choice="Q1">
+            start over
+          </button>
+        {% endif %}
+      </div>
+    </div><!-- /card_content -->
+
+    {% if card.choice_one != 'continue' %}
+    <div class="continue_button_section">
+      <button
+        id="submit_choice"
+        class="is_hidden">
+        continue
+      </button>
     </div>
+    {% endif %}
+
   </div><!-- /card -->
 
 {% endblock %}

@@ -19,6 +19,7 @@ body {
 h1,
 h2,
 h3 {
+    color: $blu;
     margin: 0;
 }
 
@@ -35,10 +36,13 @@ header {
     // box-shadow: 3px 3px 4px $a_gry;
     border: 1px dotted $a_gry;
     box-sizing: border-box;
+    height: $card_height;
     margin: 0 auto;
-    min-height: 600px;
-    padding: $slug;
     width: $card_width;
+
+    .card_content {
+        padding: $slug;
+    }
 
     .question_txt {
         color: $blu;
@@ -59,6 +63,12 @@ button {
         margin: $slug 0;
         min-height: 40px;
         width: $full;
+
+        &:focus {
+            background-color: $blu;
+            border: 1px solid $wht;
+            color: $wht;
+        }
     }
 }
 
@@ -73,5 +83,30 @@ button {
         min-height: 40px;
         width: $full;
     }
+}
+
+.continue_button_section {
+    button {
+        background-color: $blu;
+        border: 0;
+        bottom: 0;
+        color: $wht;
+        display: block;
+        height: 80px;
+        position: relative;
+        width: $full;
+    }
+}
+
+
+// ~~~~~~~~
+// helpers
+// ~~~~~~~~
+.is_hidden {
+    visibility: hidden;
+}
+
+.is_visible {
+    visibility: visible;
 }
 

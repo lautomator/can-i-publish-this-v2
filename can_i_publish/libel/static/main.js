@@ -1,17 +1,30 @@
 var libel_main_script = {
-    button_click: function (e) {
+    choice_button_click: function (e) {
         var choice = e.target.dataset.choice;
-        var url_path = "/";
+        var submit_btn = document.getElementById("submit_choice");
+        var url_path = "/libel/";
 
         if (choice === "None") {
-            url_path += "libel/summary/";
+            // go to the summary
+            window.location.pathname = url_path + "summary/";
         } else if (choice === "metrics") {
-            url_path += "libel/metrics/";
+            // go to the metrics page
+            window.location.pathname = url_path + "metrics/";
+        } else if (choice === "Q1") {
+            // start over
+            window.location.pathname = url_path + "Q1/";
         } else {
-            url_path += "libel/" + choice;
-        }
+            if (submit_btn.classList.contains("is_hidden")) {
+                // show the submit button
+                submit_btn.classList.remove("is_hidden");
+                submit_btn.classList.add("is_visible");
+            }
 
-        window.location.pathname = url_path;
+            // clicking the continue button will initiate the new request
+            submit_btn.onclick = function () {
+                window.location.pathname = url_path + choice;
+            };
+        }
     },
     disable_back_browsing: function () {
         window.history.pushState(null, null, window.location.href);
@@ -20,16 +33,16 @@ var libel_main_script = {
         };
     },
     init: function () {
-        // listen for button clicks
+        // listen for choice button clicks
         var index = 0;
-        if (this.targets.choices.length > 0) {
-
+        if (this.targets.choices[0] !== null) {
             while (index < this.targets.choices.length) {
-                this.targets.choices[index].onclick = this.button_click;
+                this.targets.choices[index].onclick = this.choice_button_click;
                 index += 1;
             }
         }
 
+        // disable back browsing so the metrics don't get repeated
         this.disable_back_browsing();
     },
     targets: {
