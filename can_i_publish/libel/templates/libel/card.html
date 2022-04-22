@@ -18,6 +18,7 @@
         {% autoescape off %}{{ card.card_text }}{% endautoescape %}
       </div>
 
+      {% if card.choice_one != 'next' %}
       <div class="choice_buttons">
         <button
           class="choice"
@@ -34,6 +35,7 @@
         </button>
         {% endif %}
       </div>
+      {% endif %}
 
       <div class="start_over_button">
         {% if card.card_slug != 'Q1' %}
@@ -46,7 +48,7 @@
       </div>
     </div><!-- /card_content -->
 
-    {% if card.choice_one != 'continue' %}
+    {% if card.choice_one != 'next' %}
     <div class="continue_button_section">
       <button
         id="submit_choice"
@@ -54,6 +56,16 @@
         continue
       </button>
     </div>
+    {% else %}
+    <div class="continue_button_section">
+      <button
+        class="choice"
+        data-choice="{{ rel.choice_one_next }}"
+        data-slug="{{ card.card_slug }}">
+        next
+      </button>
+    </div>
+
     {% endif %}
 
   </div><!-- /card -->

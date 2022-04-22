@@ -14,16 +14,21 @@ var libel_main_script = {
             // start over
             window.location.pathname = url_path + "Q1/";
         } else {
-            if (submit_btn.classList.contains("is_hidden")) {
-                // show the submit button
-                submit_btn.classList.remove("is_hidden");
-                submit_btn.classList.add("is_visible");
-            }
+            if (submit_btn !== null) {
+                if (submit_btn.classList.contains("is_hidden")) {
+                    // show the submit button
+                    submit_btn.classList.remove("is_hidden");
+                    submit_btn.classList.add("is_visible");
+                }
 
-            // clicking the continue button will initiate the new request
-            submit_btn.onclick = function () {
+                // clicking the continue button will initiate the new request
+                submit_btn.onclick = function () {
+                    window.location.pathname = url_path + choice;
+                };
+            } else {
+                // next button
                 window.location.pathname = url_path + choice;
-            };
+            }
         }
     },
     disable_back_browsing: function () {
