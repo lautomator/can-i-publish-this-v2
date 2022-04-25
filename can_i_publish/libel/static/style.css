@@ -24,7 +24,7 @@ header {
 
 .card {
   background-color: #ffffff;
-  border: 1px dotted rgba(0, 0, 0, 0.3);
+  border: 2px solid #25b3fb;
   box-sizing: border-box;
   height: auto;
   margin: 0 auto;
@@ -35,17 +35,23 @@ header {
 }
 .card .question_txt {
   color: #25b3fb;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 26px;
 }
 
 button {
   cursor: pointer;
+  color: #25b3fb;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
 }
 
 .choice_buttons button {
   background-color: #ffffff;
-  border: 1px dotted #7A898D;
+  border: 2px solid #25b3fb;
   border-radius: 8px;
-  color: #7A898D;
   display: block;
   margin: 24px 0;
   min-height: 40px;
@@ -53,11 +59,12 @@ button {
 }
 .choice_buttons button:focus, .choice_buttons button.has_focus {
   background-color: #25b3fb;
-  border: 1px solid #ffffff;
+  border: 2px solid #25b3fb;
   color: #ffffff;
 }
 
-.start_over_button button {
+.start_over_button button,
+.metrics_button button {
   background-color: #25b3fb;
   border: 0;
   border-radius: 8px;

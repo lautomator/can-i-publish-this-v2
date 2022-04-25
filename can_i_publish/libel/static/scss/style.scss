@@ -34,7 +34,7 @@ header {
 .card {
     background-color: $wht;
     // box-shadow: 3px 3px 4px $a_gry;
-    border: 1px dotted $a_gry;
+    border: 2px solid $blu;
     box-sizing: border-box;
     height: $card_height;
     margin: 0 auto;
@@ -46,19 +46,25 @@ header {
 
     .question_txt {
         color: $blu;
+        font-size: 18px;
+        font-weight: $med;
+        line-height: 26px;
     }
 }
 
 button {
     cursor: pointer;
+    color: $blu;
+    font-size: 16px;
+    font-weight: $med;
+    text-transform: uppercase;
 }
 
 .choice_buttons {
     button {
         background-color: $wht;
-        border: 1px dotted $gry;
+        border: 2px solid $blu;
         border-radius: 8px;
-        color: $gry;
         display: block;
         margin: $slug 0;
         min-height: 40px;
@@ -67,13 +73,14 @@ button {
         &:focus,
         &.has_focus {
             background-color: $blu;
-            border: 1px solid $wht;
+            border: 2px solid $blu;
             color: $wht;
         }
     }
 }
 
-.start_over_button {
+.start_over_button,
+.metrics_button {
     button {
         background-color: $blu;
         border: 0;
