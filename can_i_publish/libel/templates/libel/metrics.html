@@ -3,36 +3,40 @@
 {% block content %}
 
 <div class="summary">
-  <h3>Metrics</h3>
+  <div class="summary_header">
+    <h3>Metrics</h3>
+  </div>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Question</th>
-        <th colspan="2">Count</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for item in metrics_grid %}
-      <tr>
-        <td rowspan="2">{% autoescape off %}{{ item.question }}{% endautoescape %}</td>
-        <td>{{ item.choice_one }}</td>
-        <td>{{ item.choice_two }}</td>
-      </tr>
-      <tr>
-        <td>{{ item.count_one }}</td>
-        <td>{{ item.count_two }}</td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+  <div class="summary_grid">
+    <table>
+      <thead>
+        <tr>
+          <th>Question</th>
+          <th colspan="2">Count</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in metrics_grid %}
+        <tr>
+          <td rowspan="2">{% autoescape off %}{{ item.question }}{% endautoescape %}</td>
+          <td><p>{{ item.choice_one }}</p></td>
+          <td><p>{{ item.choice_two }}</p></td>
+        </tr>
+        <tr>
+          <td><p>{{ item.count_one }}</p></td>
+          <td><p>{{ item.count_two }}</p></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
 
-  <div class="start_over_button">
-    <button
-      class="choice"
-      data-choice="Q1">
-      start over
-    </button>
+    <div class="start_over_button">
+      <button
+        class="choice"
+        data-choice="Q1">
+        start over
+      </button>
+    </div>
   </div>
 
 </div><!-- /summary -->
