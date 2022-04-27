@@ -3,15 +3,23 @@
 {% block content %}
 
   <div class="card">
+    {% if card.can_publish_status == 'yes' or card.can_publish_status == 'no' %}
     <div class="can_publish_status">
       {% if card.can_publish_status == 'yes' %}
-      <p><strong>&check;</strong> <em>can publish</em></p>
+      <div class="status_content">
+        <span class="status_icon">&check;</span>
+        <span class="status_msg">can publish</span>
+      </div>
       {% endif %}
 
       {% if card.can_publish_status == 'no' %}
-      <p><strong>&#10005;</strong> <em>pause</em></p>
+      <div class="status_content">
+        <span class="status_icon">&#10005;</span>
+        <span class="status_msg">pause</span>
+      </div>
       {% endif %}
     </div>
+    {% endif %}
 
     <div class="card_content">
       <div class="question_txt">

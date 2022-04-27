@@ -49,6 +49,17 @@ header {
         font-size: 18px;
         font-weight: $med;
         line-height: 26px;
+
+        a {
+            border-bottom: 2px dashed $blu;
+            color: $blu;
+            text-decoration: none;
+
+            &:hover {
+                border-bottom: 0;
+                color: $blu;
+            }
+        }
     }
 }
 
@@ -97,6 +108,7 @@ button {
     button {
         background-color: $b_gry;
         border: 0;
+        // border-top: 1px dotted $blu;
         bottom: 0;
         color: $a_gry;
         cursor: default;
@@ -111,6 +123,39 @@ button {
             cursor: pointer;
         }
     }
+}
+
+.can_publish_status {
+    background-color: $blu;
+    color: $wht;
+    height: $dbl_slug;
+    text-align: center;
+    width: $full;
+
+    .status_content {
+        span {
+             display: inline-block;
+        }
+
+        .status_icon {
+            font-size: 40px;
+            font-weight: $bld;
+            height: 40px;
+            width: 40px;
+        }
+
+        .status_msg {
+            bottom: 5px;
+            font-size: $slug;
+            font-weight: $bld;
+            position: relative;
+            text-transform: uppercase;
+        }
+
+    }
+
+
+
 }
 
 

@@ -39,6 +39,15 @@ header {
   font-weight: 500;
   line-height: 26px;
 }
+.card .question_txt a {
+  border-bottom: 2px dashed #25b3fb;
+  color: #25b3fb;
+  text-decoration: none;
+}
+.card .question_txt a:hover {
+  border-bottom: 0;
+  color: #25b3fb;
+}
 
 button {
   cursor: pointer;
@@ -90,6 +99,30 @@ button {
   background-color: #25b3fb;
   color: #ffffff;
   cursor: pointer;
+}
+
+.can_publish_status {
+  background-color: #25b3fb;
+  color: #ffffff;
+  height: 48px;
+  text-align: center;
+  width: 100%;
+}
+.can_publish_status .status_content span {
+  display: inline-block;
+}
+.can_publish_status .status_content .status_icon {
+  font-size: 40px;
+  font-weight: 600;
+  height: 40px;
+  width: 40px;
+}
+.can_publish_status .status_content .status_msg {
+  bottom: 5px;
+  font-size: 24px;
+  font-weight: 600;
+  position: relative;
+  text-transform: uppercase;
 }
 
 .is_hidden {
