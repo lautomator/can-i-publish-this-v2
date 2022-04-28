@@ -1,1 +1,1 @@
-web: gunicorn myproject.wsgi
+web: gunicorn can_i_publish.wsgi
