@@ -1,1 +1,0 @@
-web: gunicorn can_i_publish.wsgi
