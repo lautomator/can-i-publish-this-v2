@@ -74,7 +74,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'can_i_publish.wsgi.application'
+WSGI_APPLICATION = 'can_i_publish.can_i_publish.wsgi.application'
 
 
 # Database
