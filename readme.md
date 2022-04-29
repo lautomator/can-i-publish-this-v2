@@ -4,3 +4,5 @@
 push to heroku main from another branch
 
 git push heroku prod:main
+
+heroku local
