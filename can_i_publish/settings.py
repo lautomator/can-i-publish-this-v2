@@ -28,6 +28,7 @@ SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 DEBUG = False
 
 ALLOWED_HOSTS = ['polar-everglades-28624.herokuapp.com']
+# ALLOWED_HOSTS = [] // for local only; change DEBUG to true
 # https://polar-everglades-28624.herokuapp.com/
 
 
