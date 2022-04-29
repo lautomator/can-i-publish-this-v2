@@ -1,0 +1,33 @@
+// colors
+$wht: #ffffff;
+$blk: #000000;
+$blu: #25b3fb;
+$a_blu: rgba(37, 179, 251, 0.3);
+$gry: #7A898D;
+$a_gry: rgba(0, 0, 0, 0.3);
+$b_gry: rgba(0, 0, 0, 0.1);
+
+// fonts
+$main_font: 'Poppins', sans-serif;
+// Poppins weights: 300, 400, 500, 600
+$lgt: 300;
+$reg: 400;
+$med: 500;
+$bld: 600;
+
+// dimensions
+$slug: 24px;
+$hlf_slug: 12px;
+$dbl_slug: 48px;
+$full: 100%;
+$half: 50%;
+
+// dimensions desktop
+$container: 600px;
+$card_width: 400px;
+$card_height: auto;
+// dimensions mobile
+$container_mob: $full;
+$card_width_mob: 90%;
+
+

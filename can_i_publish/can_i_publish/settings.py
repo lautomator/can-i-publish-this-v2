@@ -34,7 +34,7 @@ ALLOWED_HOSTS = ['polar-everglades-28624.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
-    'can_i_publish.libel.apps.LibelConfig',
+    'libel.apps.LibelConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

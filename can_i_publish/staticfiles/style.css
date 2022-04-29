@@ -1,0 +1,208 @@
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  background-color: #ffffff;
+  margin: 0 auto;
+  padding: 24px;
+  width: 600px;
+}
+
+h1,
+h2,
+h3 {
+  color: #25b3fb;
+  margin: 0;
+}
+
+header {
+  background-color: #25b3fb;
+  box-sizing: border-box;
+  margin: 0 auto 24px auto;
+  padding: 12px;
+  text-align: center;
+  width: 400px;
+}
+header h1,
+header h2,
+header h3 {
+  color: #ffffff;
+  font-weight: 500;
+  line-height: 48px;
+}
+header h2,
+header h3 {
+  font-weight: 300;
+}
+
+.card {
+  background-color: #ffffff;
+  border: 2px solid #25b3fb;
+  box-sizing: border-box;
+  height: auto;
+  margin: 0 auto;
+  width: 400px;
+}
+.card .card_content {
+  padding: 24px;
+}
+.card .question_txt {
+  color: #25b3fb;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px;
+}
+.card .question_txt a {
+  border-bottom: 2px dashed #25b3fb;
+  color: #25b3fb;
+  text-decoration: none;
+}
+.card .question_txt a:hover {
+  border-bottom: 0;
+  color: #25b3fb;
+}
+
+button {
+  cursor: pointer;
+  color: #25b3fb;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.choice_buttons button {
+  background-color: #ffffff;
+  border: 2px solid #25b3fb;
+  border-radius: 8px;
+  display: block;
+  margin: 24px 0;
+  min-height: 40px;
+  width: 100%;
+}
+.choice_buttons button:focus, .choice_buttons button.has_focus {
+  background-color: #25b3fb;
+  border: 2px solid #25b3fb;
+  color: #ffffff;
+}
+
+.start_over_button button {
+  background-color: #ffffff;
+  border: 1px dotted #25b3fb;
+  border-radius: 8px;
+  color: rgba(37, 179, 251, 0.3);
+  display: block;
+  margin: 24px 0;
+  min-height: 40px;
+  transition: 1s;
+  width: 100%;
+}
+.start_over_button button:hover {
+  background-color: #25b3fb;
+  color: #ffffff;
+}
+
+.metrics_button button {
+  background-color: #25b3fb;
+  border: 0;
+  border-radius: 8px;
+  color: #ffffff;
+  display: block;
+  margin: 24px 0;
+  min-height: 40px;
+  width: 100%;
+}
+
+.continue_button_section button {
+  background-color: rgba(0, 0, 0, 0.1);
+  border: 0;
+  bottom: 0;
+  color: rgba(0, 0, 0, 0.3);
+  cursor: default;
+  display: block;
+  height: 80px;
+  position: relative;
+  width: 100%;
+}
+.continue_button_section button.is_active {
+  background-color: #25b3fb;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.can_publish_status {
+  background-color: #25b3fb;
+  color: #ffffff;
+  height: 48px;
+  text-align: center;
+  width: 100%;
+}
+.can_publish_status .status_content span {
+  display: inline-block;
+}
+.can_publish_status .status_content .status_icon {
+  font-size: 40px;
+  font-weight: 600;
+  height: 40px;
+  width: 40px;
+}
+.can_publish_status .status_content .status_msg {
+  bottom: 5px;
+  font-size: 24px;
+  font-weight: 600;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.summary {
+  border: 2px solid #25b3fb;
+  width: 100%;
+}
+.summary .summary_header {
+  background-color: #25b3fb;
+  box-sizing: border-box;
+  padding: 12px;
+  text-align: center;
+  width: 100%;
+}
+.summary .summary_header h3 {
+  color: #ffffff;
+}
+.summary .summary_grid {
+  box-sizing: border-box;
+  margin: 24px 0;
+  padding: 24px;
+}
+.summary .metrics_button,
+.summary .start_over_button {
+  width: 50%;
+}
+.summary table {
+  border-collapse: collapse;
+}
+.summary table th {
+  border-bottom: 2px solid #25b3fb;
+  text-align: left;
+}
+.summary table td {
+  border-bottom: 1px dashed #25b3fb;
+  font-size: 14px;
+  line-height: 22px;
+  vertical-align: top;
+  padding-right: 24px;
+}
+.summary table td:last-of-type {
+  padding-right: 0;
+}
+
+.is_hidden {
+  visibility: hidden;
+}
+
+.is_visible {
+  visibility: visible;
+}
+
+/*# sourceMappingURL=style.css.map */

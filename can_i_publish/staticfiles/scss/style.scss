@@ -1,0 +1,254 @@
+@import "base";
+
+// ~~~~~~~~
+// main
+// ~~~~~~~~
+body {
+    font-family: $main_font;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    background-color: $wht;
+    margin: 0 auto;
+    padding: $slug;
+    width: $container;
+}
+
+h1,
+h2,
+h3 {
+    color: $blu;
+    margin: 0;
+}
+
+header {
+    background-color: $blu;
+    box-sizing: border-box;
+    margin: 0 auto $slug auto;
+    padding: $hlf_slug;
+    text-align: center;
+    width: $card_width;
+
+    h1,
+    h2,
+    h3 {
+        color: $wht;
+        font-weight: $med;
+        line-height: $dbl_slug;
+    }
+
+    h2,
+    h3 {
+        font-weight: $lgt;
+    }
+}
+
+
+// ~~~~~~~~
+// card
+// ~~~~~~~~
+.card {
+    background-color: $wht;
+    border: 2px solid $blu;
+    box-sizing: border-box;
+    height: $card_height;
+    margin: 0 auto;
+    width: $card_width;
+
+    .card_content {
+        padding: $slug;
+    }
+
+    .question_txt {
+        color: $blu;
+        font-size: 20px;
+        font-weight: $med;
+        line-height: 28px;
+
+        a {
+            border-bottom: 2px dashed $blu;
+            color: $blu;
+            text-decoration: none;
+
+            &:hover {
+                border-bottom: 0;
+                color: $blu;
+            }
+        }
+    }
+}
+
+button {
+    cursor: pointer;
+    color: $blu;
+    font-size: 16px;
+    font-weight: $med;
+    text-transform: uppercase;
+}
+
+.choice_buttons {
+    button {
+        background-color: $wht;
+        border: 2px solid $blu;
+        border-radius: 8px;
+        display: block;
+        margin: $slug 0;
+        min-height: 40px;
+        width: $full;
+
+        &:focus,
+        &.has_focus {
+            background-color: $blu;
+            border: 2px solid $blu;
+            color: $wht;
+        }
+    }
+}
+
+.start_over_button {
+    button {
+        background-color: $wht;
+        border: 1px dotted $blu;
+        border-radius: 8px;
+        color: $a_blu;
+        display: block;
+        margin: $slug 0;
+        min-height: 40px;
+        transition: 1s;
+        width: $full;
+
+        &:hover {
+            background-color: $blu;
+            color: $wht;
+        }
+    }
+}
+
+.metrics_button {
+    button {
+        background-color: $blu;
+        border: 0;
+        border-radius: 8px;
+        color: $wht;
+        display: block;
+        margin: $slug 0;
+        min-height: 40px;
+        width: $full;
+    }
+}
+
+.continue_button_section {
+    button {
+        background-color: $b_gry;
+        border: 0;
+        bottom: 0;
+        color: $a_gry;
+        cursor: default;
+        display: block;
+        height: 80px;
+        position: relative;
+        width: $full;
+
+        &.is_active {
+            background-color: $blu;
+            color: $wht;
+            cursor: pointer;
+        }
+    }
+}
+
+.can_publish_status {
+    background-color: $blu;
+    color: $wht;
+    height: $dbl_slug;
+    text-align: center;
+    width: $full;
+
+    .status_content {
+        span {
+             display: inline-block;
+        }
+
+        .status_icon {
+            font-size: 40px;
+            font-weight: $bld;
+            height: 40px;
+            width: 40px;
+        }
+
+        .status_msg {
+            bottom: 5px;
+            font-size: $slug;
+            font-weight: $bld;
+            position: relative;
+            text-transform: uppercase;
+        }
+
+    }
+}
+
+.summary {
+    border: 2px solid $blu;
+    width: $full;
+
+    .summary_header {
+        background-color: $blu;
+        box-sizing: border-box;
+        padding: $hlf_slug;
+        text-align: center;
+        width: $full;
+
+        h3 {
+            color: $wht;
+        }
+    }
+
+    .summary_grid {
+        box-sizing: border-box;
+        margin: $slug 0;
+        padding: $slug;
+    }
+
+    .metrics_button,
+    .start_over_button {
+        width: $half;
+    }
+
+    table {
+        border-collapse: collapse;
+
+        th {
+            border-bottom: 2px solid $blu;
+            text-align: left;
+        }
+
+        td {
+            border-bottom: 1px dashed $blu;
+            font-size: 14px;
+            line-height: 22px;
+            vertical-align: top;
+            padding-right: $slug;
+
+            &:last-of-type {
+                padding-right: 0;
+            }
+        }
+
+    }
+
+}
+
+
+// ~~~~~~~~
+// helpers
+// ~~~~~~~~
+.is_hidden {
+    visibility: hidden;
+}
+
+.is_visible {
+    visibility: visible;
+}
+
