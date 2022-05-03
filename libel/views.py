@@ -1,6 +1,5 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from django.template import loader
 from django.urls import reverse
 
 from .models import Card, Relationship, Metric
@@ -178,7 +177,3 @@ def metrics(request):
     metrics_grid = set_metrics_grid(all_questions_counted)
     context = { 'metrics_grid': metrics_grid}
     return render(request, 'libel/metrics.html', context)
-
-# TODO
-# front end work
-# Lint HTML
