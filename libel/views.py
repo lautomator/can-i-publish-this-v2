@@ -178,7 +178,3 @@ def metrics(request):
     metrics_grid = set_metrics_grid(all_questions_counted)
     context = { 'metrics_grid': metrics_grid}
     return render(request, 'libel/metrics.html', context)
-
-# TODO
-# front end work
-# Lint HTML
